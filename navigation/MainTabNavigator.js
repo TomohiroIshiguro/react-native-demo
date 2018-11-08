@@ -4,7 +4,10 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import Demo1TopScreen from '../screens/demo1/ReaderTop';
+import Demo1GenreScreen from '../screens/demo1/Genre';
+import Demo1ContentScreen from '../screens/demo1/Content';
+import Demo2TopScreen from '../screens/demo2/ReaderTop';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
@@ -25,12 +28,28 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const Demo1Stack = createStackNavigator({
+  ReaderTop: Demo1TopScreen,
+  Genre: Demo1GenreScreen,
+  Content: Demo1ContentScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+Demo1Stack.navigationOptions = {
+  tabBarLabel: 'Demo1',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+    />
+  ),
+};
+
+const Demo2Stack = createStackNavigator({
+  ReaderTop: Demo2TopScreen,
+});
+
+Demo2Stack.navigationOptions = {
+  tabBarLabel: 'Demo2',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -55,6 +74,7 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  Demo1Stack,
+  Demo2Stack,
   SettingsStack,
 });
