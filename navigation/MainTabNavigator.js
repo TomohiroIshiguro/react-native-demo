@@ -29,7 +29,7 @@ HomeStack.navigationOptions = {
 };
 
 const Demo1Stack = createStackNavigator({
-  ReaderTop: Demo1TopScreen,
+  FeedReaderTop: Demo1TopScreen,
   Genre: Demo1GenreScreen,
   Content: Demo1ContentScreen,
 });
@@ -45,7 +45,7 @@ Demo1Stack.navigationOptions = {
 };
 
 const Demo2Stack = createStackNavigator({
-  ReaderTop: Demo2TopScreen,
+  QRcodeReaderTop: Demo2TopScreen,
 });
 
 Demo2Stack.navigationOptions = {
